@@ -1,0 +1,32 @@
+.sad-emoticon {
+    margin: 240px 0 47px 0;
+    width: 150px;
+    height: 151px;
+    object-fit: contain;
+}
+.sad-block {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.sad-block p {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.21;
+    letter-spacing: normal;
+    text-align: center;
+    color: #b0b0b0;
+}
+.btn-create {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 249px;
+    height: 60px;
+    margin: 56px 0px 0 0;
+    color: #e990f9;
+    background-color: #00000000;
+    border-radius: 36px;
+    border: solid 3px #e990f9;
+}

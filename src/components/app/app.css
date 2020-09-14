@@ -1,0 +1,59 @@
+
+* {
+	margin: 0;
+    border: 0;
+}
+html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+.grid-container2 {
+    display: grid;
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 176px 4fr 1fr;
+    grid-template-areas:
+      "head head head"
+      ". container ."
+      ". . add-icon";
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    grid-area: container;
+}
+
+/* Add Page */
+.grid-container3 {
+    display: grid;  
+    justify-items: center;
+    height: 100vh;
+    grid-template-areas: "header header header"  
+                         "container container container";
+    grid-template-rows: 234px auto;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+/* Info Page */
+.block-info {
+    width: 614px;
+}
+.block-info .info {
+    font-size: 36px;
+    color: #7ed321;
+    font-weight: bold;
+}
+.block-info p {
+    color: #979797;
+    margin: 15px 0 15px 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.71;
+}

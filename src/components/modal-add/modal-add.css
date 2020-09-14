@@ -1,0 +1,58 @@
+.cancel-icon {
+    float: right;
+    width: 27px;
+    height: 27px;
+    margin: -25px 25px 50px 0;
+    object-fit: contain;
+    background-color: var(--white-two);
+    cursor: none;
+    transition: 0.4s;
+}
+.cancel-icon:hover {
+    transform: rotate(90deg);
+}
+.block-add {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 503px;
+    height: 379px;
+    border-radius: 44px;
+    background-color: #7ed321;
+  }
+.form-add {
+    display: flex;
+    flex-direction: column;
+    padding: 0 88px 0px 88px;
+}
+.form-add label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 25px 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+.form-add label input {
+    width: 236px;
+    height: 31px;
+    background-color: #ffffff;
+    border-radius: 7px;
+    border: solid 1px #979797;
+    color: #979797;
+}
+.form-add input[type=submit] {
+    align-self: center;
+    width: 320px;
+    height: 42px;
+    color: #ffffff;
+    background-color: #7ed321;
+    border-radius: 25.2px;
+    border: solid 2px #ffffff;
+    transition: 0.4s linear;
+    cursor: pointer;
+}
+.form-add input[type=submit]:hover {
+    background-color: #ffff;
+    color: black;
+    width: 90px;
+}

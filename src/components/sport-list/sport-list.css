@@ -1,0 +1,40 @@
+.sport-list {
+    display: flex;
+    flex-direction: column;
+}
+.sport-item {
+    margin: 53px 0 27px 0;
+    display: inline-flex;
+}
+.sport-item ul {
+    padding: 0;
+}
+.sport-item ul li {
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 12px;
+}
+.sport-item ul li u {
+    text-decoration: none;
+    color: #979797;
+}
+
+.sport-item ul li.date-workout {
+    font-size: 14px;
+    font-weight: normal;
+    color: #979797;
+    margin-bottom: 9px;
+}
+
+
+.human-icon {
+    margin-right: 46px;
+    width: 87px;
+    height: 87px;
+    object-fit: contain;
+    transition: 0.3s linear;
+}
+.human-icon:hover {
+    transform: scale(1.3);
+}

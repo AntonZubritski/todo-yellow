@@ -1,0 +1,47 @@
+.grid-container {
+    display: grid;  
+    justify-items: center;
+    height: 100vh;
+    grid-template-areas: "header header header"  
+                         "container container container";
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+.block-in {
+    grid-area: block-in;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 503px;
+    height: 379px;
+    border-radius: 44px;
+    background-color: #e990f9;
+}
+.btn-in {
+    display: flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    width: 151px;
+    height: 60px;
+    margin: 56px 0px 0 0;
+    color: #ffffff;
+    background-color: #00000000;
+    border-radius: 36px;
+    border: solid 3px #ffffff;
+}
+input[type="button"] {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    line-height: normal !important;
+    letter-spacing: normal !important;
+}
+input[type="date"] {
+    color: #979797;
+    padding: 1px 2px;
+}

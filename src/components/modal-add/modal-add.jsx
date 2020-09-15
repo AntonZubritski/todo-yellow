@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 import * as actions from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import './modal-add.css'
@@ -22,14 +23,14 @@ const ModalAdd = () => {
   return (
     <div className="container">
       <div className="block-add">
-        <div>
+        <NavLink to="/jogs">
           <img
             src={cancel}
             className="cancel-icon"
             alt="cancel"
             onClick={() => dispatch(actions.ModalActive())}
           />
-        </div>
+        </NavLink>
         <form className="form-add" onSubmit={onSubmit}>
           <label>
             Distance

@@ -35,9 +35,10 @@ ul.nav-header li {
     display: inline;
     transition: 0.4s linear;
     margin-right: 45px;
-    color: #ffffff;
     padding-bottom: 4.1px;
-    cursor: pointer;
+}
+ul.nav-header li a {
+    color: #ffffff;
 }
 ul.nav-header li:hover {
     border-bottom: 3px solid #95959557;

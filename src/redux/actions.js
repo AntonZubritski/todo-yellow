@@ -5,7 +5,8 @@ import {
   TOGGLE_FILTER,
   TOGGLE_MODAL,
   ON_CHANGE,
-  POST_JOG
+  CLEAR_ADD_FORM,
+  DELETE_JOG,
 } from './constants'
 
 import ApiArticles from '../services/api-services'
@@ -41,16 +42,33 @@ export const PostJogFetch = (distance, time, date) => {
   const jog = {
     distance: distance,
     time: time,
-    date: date
+    date: date,
   }
   return (dispatch) => {
     api.fetchApi
       .postJog(jog)
-      .then((jogBack) => {
-        console.log(jogBack);
+      .then(() => {
         dispatch(ModalActive())
-        
+        dispatch(ClearAddForm())
       })
+      .then(
+        dispatch(GetJogsFetch())
+      )
+      .catch((err) => {
+        console.log(err)
+        dispatch(AddAuthErr(err.message))
+      })
+  }
+}
+export const DeleteJogFetch = (id, userId) => {
+  const user = {
+    jog_id: id,
+    user_id: userId,
+  }
+  return (dispatch) => {
+    api.fetchApi.deleteJog(user).then(() => {
+      dispatch(DeleteJog(id))
+    })
   }
 }
 
@@ -61,7 +79,8 @@ export const OnChange = (name, value) => ({
 })
 export const FilterActive = () => ({ type: TOGGLE_FILTER })
 export const ModalActive = () => ({ type: TOGGLE_MODAL })
-const PostJog = () => ({ type: POST_JOG}) 
+const DeleteJog = (id) => ({ type: DELETE_JOG, id })
+const ClearAddForm = () => ({ type: CLEAR_ADD_FORM })
 const SetJogs = (payload) => ({
   type: SET_JOGS,
   payload,

@@ -39,30 +39,25 @@ export default class ApiServices {
       this.templateJogsFetch(`${this._urlBase}/data/sync`, 'GET'),
     postJog: (body) => 
       this.templateFetch(`${this._urlBase}/data/jog`, 'POST', body),
+    deleteJog: (body) => 
+      this.templateFetch(`${this._urlBase}/data/jog`, 'DELETE', body),
   }
 
   // //------Transform Function
   _transformJogs = (jog) => {
-
     return {
       date: this._transformDate(jog.date),
       distance: jog.distance,
-      speed: this._transformSpeed(jog.distance, jog.time),
       id: jog.id,
       time: jog.time,
       user_id: jog.user_id,
     }
   }
   _transformDate = (created) => {
-    const day = new Date(created * 1000).getDate()
+    const day = new Date(created * 1000).toLocaleString('en', { day: '2-digit' })
     const month = new Date(created * 1000).toLocaleString('en', { month: '2-digit' })
     const year = new Date(created * 1000).getFullYear()
     return `${day}.${month}.${year}`
-  }
-  _transformSpeed = (distance, time) => {
-    const km = distance/1000
-    const h = time/60
-    return Math.trunc((km/h) * 100) / 100;
   }
   //------Transform Function END
 }

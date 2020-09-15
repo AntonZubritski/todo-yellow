@@ -6,26 +6,33 @@ import SportList from '../sport-list'
 import ModalAdd from '../modal-add'
 import './jogs-page.css'
 import add from '../../img/add.svg'
-
-
+import { NavLink } from 'react-router-dom'
 
 const JogsPage = () => {
   const modal = useSelector((state) => state.modal)
+  const token = useSelector((state) => state.token)
   const dispatch = useDispatch()
 
-  useEffect(() => dispatch(actions.GetJogsFetch()), [])
+  useEffect(() => {
+    dispatch(actions.GetJogsFetch())
+  }, [token])
 
   const btnAdd = (
-    <button className="btn-add" onClick= {() => dispatch(actions.ModalActive())}>
-    <img src={add} className="add" alt="add" />
-  </button>
+    <div
+      className="btn-add"
+      onClick={() => {
+        dispatch(actions.ModalActive())
+      }}
+    >
+      <img src={add} className="add" alt="add" />
+    </div>
   )
 
   return (
-    <div className="grid-container2">
+    <div className="grid-container">
       <Header />
-      {modal ? <ModalAdd /> : <SportList /> }
-      {btnAdd}
+      {modal ? <ModalAdd /> : <SportList />}
+      {modal ? null : btnAdd}
     </div>
   )
 }

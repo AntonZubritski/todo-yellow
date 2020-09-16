@@ -1,9 +1,7 @@
 export default class ApiServices {
   _urlBase = 'https://jogtracker.herokuapp.com/api/v1'
-  _dfaultImg = 'https://static.productionready.io/images/smiley-cyrus.jpg'
+  _token = localStorage.getItem('jwt')
 
-  _token = null
-  setToken = () => (this._token = window.localStorage.getItem('jwt'))
 
   headers = (token) => {
     return {
@@ -17,7 +15,7 @@ export default class ApiServices {
     const res = await fetch(url, {
       method: method,
       body: JSON.stringify(body),
-      headers: this.headers(window.localStorage.getItem('jwt')),
+      headers: this.headers(this._token),
     })
     if (!res.ok) {
       throw new Error(`Could not fetch, received ${res.status}`)
@@ -39,6 +37,8 @@ export default class ApiServices {
       this.templateJogsFetch(`${this._urlBase}/data/sync`, 'GET'),
     postJog: (body) => 
       this.templateFetch(`${this._urlBase}/data/jog`, 'POST', body),
+    editJog: (body) => 
+      this.templateFetch(`${this._urlBase}/data/jog`, 'PUT', body),
     deleteJog: (body) => 
       this.templateFetch(`${this._urlBase}/data/jog`, 'DELETE', body),
   }
@@ -46,7 +46,7 @@ export default class ApiServices {
   // //------Transform Function
   _transformJogs = (jog) => {
     return {
-      date: this._transformDate(jog.date),
+      date: jog.date*1000,
       distance: jog.distance,
       id: jog.id,
       time: jog.time,
@@ -57,7 +57,7 @@ export default class ApiServices {
     const day = new Date(created * 1000).toLocaleString('en', { day: '2-digit' })
     const month = new Date(created * 1000).toLocaleString('en', { month: '2-digit' })
     const year = new Date(created * 1000).getFullYear()
-    return `${day}.${month}.${year}`
+    return `${day}-${month}-${year}`
   }
   //------Transform Function END
 }

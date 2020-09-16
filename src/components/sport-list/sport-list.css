@@ -1,9 +1,10 @@
 .sport-list {
     display: flex;
+    margin-top: 113px;
     flex-direction: column;
 }
 .sport-item {
-    margin: 53px 0 27px 0;
+    margin-bottom: 88.3px;
     display: inline-flex;
 }
 .sport-item ul {
@@ -40,9 +41,13 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
+    transition: 0.3s linear;
     grid-template-areas:
         "a"
-        "b"
+        "b";
+}
+.human-block:hover {
+    transform: scale(1.2);
 }
 .a{
     width: 87px;
@@ -80,6 +85,3 @@
 .b:hover {
     opacity: 1;
 }
-/* .human-icon:hover {
-    transform: scale(1.3);
-} */

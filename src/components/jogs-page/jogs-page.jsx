@@ -6,16 +6,15 @@ import SportList from '../sport-list'
 import ModalAdd from '../modal-add'
 import './jogs-page.css'
 import add from '../../img/add.svg'
-import { NavLink } from 'react-router-dom'
 
 const JogsPage = () => {
-  const modal = useSelector((state) => state.modal)
-  const token = useSelector((state) => state.token)
+  const { modal } = useSelector((state) => state.serviceStore)
+  const { jogs } = useSelector((state) => state.pageStore)
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(actions.GetJogsFetch())
-  }, [token])
+  }, [])
 
   const btnAdd = (
     <div
@@ -32,7 +31,7 @@ const JogsPage = () => {
     <div className="grid-container">
       <Header />
       {modal ? <ModalAdd /> : <SportList />}
-      {modal ? null : btnAdd}
+      {modal || jogs.length === 0 ? null : btnAdd}
     </div>
   )
 }

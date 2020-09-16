@@ -5,11 +5,16 @@ import { useDispatch, useSelector } from 'react-redux'
 import './modal-add.css'
 import cancel from '../../img/cancel.svg'
 
-const ModalAdd = () => {
-  const distance = useSelector((state) => state.distance)
-  const time = useSelector((state) => state.time)
-  const date = useSelector((state) => state.date)
+const _transformDate = (created) => {
+  const day = new Date(created).toLocaleString('en', { day: '2-digit' })
+  const month = new Date(created).toLocaleString('en', { month: '2-digit' })
+  const year = new Date(created).getFullYear()
+  return `${year}-${month}-${day}`
+}
 
+const ModalAdd = () => {
+  const modalState = useSelector((state) => state.serviceStore.modalState)
+  const pStore = useSelector((state) => state.pageStore)
   const dispatch = useDispatch()
 
   const onChangeInput = (e) => {
@@ -17,9 +22,15 @@ const ModalAdd = () => {
     dispatch(actions.OnChange(name, value))
   }
   const onSubmit = (e) => {
-      e.preventDefault()
+    const { distance, time, date } = pStore
+    e.preventDefault()
+    if (modalState) {
       dispatch(actions.PostJogFetch(distance, time, date))
+    } else {
+      dispatch(actions.EditJogFetch(pStore))
+    }
   }
+
   return (
     <div className="container">
       <div className="block-add">
@@ -28,7 +39,7 @@ const ModalAdd = () => {
             src={cancel}
             className="cancel-icon"
             alt="cancel"
-            onClick={() => dispatch(actions.ModalActive())}
+            onClick={() => dispatch(actions.CancelButton())}
           />
         </NavLink>
         <form className="form-add" onSubmit={onSubmit}>
@@ -38,7 +49,7 @@ const ModalAdd = () => {
               type="number"
               name="distance"
               placeholder="km-m"
-              value={distance}
+              value={pStore.distance}
               onChange={onChangeInput}
               pattern="[0-9]"
               required
@@ -50,7 +61,7 @@ const ModalAdd = () => {
               type="number"
               name="time"
               placeholder="min"
-              value={time}
+              value={pStore.time}
               onChange={onChangeInput}
               pattern="[0-9]"
               required
@@ -61,12 +72,12 @@ const ModalAdd = () => {
             <input
               type="date"
               name="date"
-              value={date}
+              value={_transformDate(pStore.date)}
               onChange={onChangeInput}
               required
             />
           </label>
-          <input type="submit" value="Save" />
+          <input type="submit" value={modalState ? 'Save' : 'Edit'} />
         </form>
       </div>
     </div>

@@ -8,9 +8,14 @@ import filterActive from '../../img/filter-active.svg'
 import filterFalse from '../../img/filter.svg'
 
 const Header = () => {
-  const filter = useSelector((state) => state.filter)
+  const { filter } = useSelector((state) => state.serviceStore)
   const dispatch = useDispatch()
   const location = useLocation()
+
+  const filterOnCnange = (e) => {
+    const { name, value } = e.target
+    dispatch(actions.ChangeFilter(name, value))
+  }
 
   const navBlock = (
     <div className="navBlock">
@@ -39,16 +44,26 @@ const Header = () => {
     <div className="head">
       <div className="header">
         <img src={logo} className="logo" alt="LOGO" />
-        {location.pathname !== '/entry' ? navBlock : null}
+        {location.pathname !== '/' ? navBlock : null}
       </div>
       <div className={filter ? 'date-form' : 'date-form-hide'}>
         <p className="date-input">
           Date from
-          <input type="date" className="date" id="trip-start" step="4" />
+          <input
+            type="date"
+            name="filterFrom"
+            onChange={filterOnCnange}
+            className="date"
+          />
         </p>
         <p className="date-input">
           Date to
-          <input type="date" className="date" id="trip-finish" />
+          <input
+            type="date"
+            name="filterTo"
+            onChange={filterOnCnange}
+            className="date"
+          />
         </p>
       </div>
     </div>

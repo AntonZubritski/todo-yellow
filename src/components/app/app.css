@@ -16,7 +16,7 @@ html, body {
     display: grid;
     min-height: 100vh;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 176px 1fr;
+    grid-template-rows: 116px 1fr;
     grid-template-areas:
       "head head head"
       ". container .";
@@ -42,6 +42,7 @@ html, body {
 /* Info Page */
 .block-info {
     width: 614px;
+    margin-top: 85px;
 }
 .block-info .info {
     font-size: 36px;

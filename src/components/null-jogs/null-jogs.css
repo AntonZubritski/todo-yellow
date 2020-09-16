@@ -1,10 +1,11 @@
 .sad-emoticon {
-    margin: 240px 0 47px 0;
+    margin-bottom: 47px;
     width: 150px;
     height: 151px;
     object-fit: contain;
 }
 .sad-block {
+    margin-top: 127px;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -24,9 +25,14 @@
     justify-content: center;
     width: 249px;
     height: 60px;
-    margin: 56px 0px 0 0;
+    margin-top: 141px;
+    transition: 0.3s linear;
     color: #e990f9;
     background-color: #00000000;
     border-radius: 36px;
     border: solid 3px #e990f9;
+}
+.btn-create:hover {
+    color: #ffffff;
+    background-color: #e990f9;
 }

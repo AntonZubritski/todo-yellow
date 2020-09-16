@@ -33,7 +33,7 @@ ul.nav-header {
 }
 ul.nav-header li {
     display: inline;
-    transition: 0.4s linear;
+    transition: 0.1s linear;
     margin-right: 45px;
     padding-bottom: 4.1px;
 }
@@ -58,7 +58,7 @@ ul.nav-header li.active {
     object-fit: contain;
     cursor: pointer;
   }
-  .filter-block {
+.filter-block {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -69,6 +69,9 @@ ul.nav-header li.active {
 
 .date-input input[type=date] ::-webkit-inner-spin-button {
     display: none !important;
+}
+.date-input input[type=date] {
+    font: 400 10px Arial;
 }
 .date-form-hide {
     margin-top: -60px;

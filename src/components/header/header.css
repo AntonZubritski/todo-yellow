@@ -1,3 +1,67 @@
+@media screen and (max-device-width: 375pt) {
+    .grid-container .head { 
+        grid-template-rows: 77pt auto;
+      }
+    .head .header {        
+        height: 77pt;
+    }
+    .head .date-form {
+        height: 60pt;
+        font-size: 13pt;
+    }
+    .head .date-form-hide {
+        margin-top: -60pt;
+        height: 60pt;
+        font-size: 13pt;
+    }
+    .date-form .date-form-input {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 29pt;
+    }
+    .date-form-hide .date-form-input {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 29pt;
+    }
+    .date-form .date-input {
+        margin: 0 ;
+    }
+    .date-form-hide .date-input {
+        margin: 0 ;
+    }
+    .header .logo {
+        width: 98pt;
+        height: 37pt;
+        margin-left: 25pt;
+        object-fit: contain;
+    }
+    .filter-block .filter {
+        width: 26pt;
+        height: 26pt;
+    }
+    .filter-block .filter-active {
+        width: 39pt;
+        height: 39pt;
+    }
+    .navBlock ul.nav-header {
+        padding: 4px;
+        display: none;
+    }
+    .navBlock .filter-block {
+        width: 39pt;
+        height: 39pt;
+        margin-right: 45pt;
+    }
+    .date-input .date {
+        height: 31pt;
+        margin-left: 16pt;
+        border-radius: 11pt;
+        border: solid 1pt #979797;
+    }
+   }
 .head {
     display: grid;
     grid-template-columns: 1fr;
@@ -27,6 +91,9 @@
     display: inline-flex;
     align-items: center;
     font-size: 14px;
+}
+.menu-icon {
+    margin-right: 25pt;
 }
 ul.nav-header {
     padding: 4px;
@@ -103,7 +170,14 @@ ul.nav-header li.active {
     letter-spacing: normal;
     text-align: center;
 }
+.date-form-input {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 530px;
+}
 .date {
+    text-align: center;
     width: 100px;
     height: 31px;
     margin-left: 15px;
@@ -111,6 +185,7 @@ ul.nav-header li.active {
     color: #979797;
     border: solid 1px #979797;
     background-color: #ffffff;
+    padding: 0 !important;
 }
 .date-input {
     align-self: center;

@@ -1,4 +1,22 @@
-
+@media screen and (max-device-width: 375pt) {
+    .container .block-in {
+        background-color: #ffffff;
+        margin-top: 141pt;
+    }
+    .container .block-in .btn-in {
+        width: 151pt;
+        height: 60pt;
+        margin-top: 103pt;
+        color: #e990f9;
+        background-color: #00000000;
+        border-radius: 36pt;
+        border: solid 3pt #e990f9;
+    }
+   }
+.bear-face {
+    display: flex;
+    align-self: center;
+}
 .block-in {
     grid-area: block-in;
     display: flex;
@@ -17,7 +35,7 @@
     justify-content: center;
     width: 151px;
     height: 60px;
-    margin: 56px 0px 0 0;
+    margin-top: 56px;
     color: #ffffff;
     background-color: #00000000;
     border-radius: 36px;

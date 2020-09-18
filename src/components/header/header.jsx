@@ -2,20 +2,19 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, NavLink } from 'react-router-dom'
 import * as actions from '../../redux/actions'
-import './header.css'
 import logo from '../../img/logo.svg'
 import filterActive from '../../img/filter-active.svg'
 import filterFalse from '../../img/filter.svg'
+import { MenuSvg } from '../svg-icons/svg-icons.js'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
+import './header.css'
 
 const Header = () => {
   const { filter } = useSelector((state) => state.serviceStore)
+  const { filterFrom, filterTo } = useSelector((state) => state.pageStore)
   const dispatch = useDispatch()
   const location = useLocation()
-
-  const filterOnCnange = (e) => {
-    const { name, value } = e.target
-    dispatch(actions.ChangeFilter(name, value))
-  }
 
   const navBlock = (
     <div className="navBlock">
@@ -38,33 +37,36 @@ const Header = () => {
           alt="filter"
         />
       </div>
+      <MenuSvg />
     </div>
   )
   return (
     <div className="head">
       <div className="header">
         <img src={logo} className="logo" alt="LOGO" />
-        {location.pathname !== '/' ? navBlock : null}
+        {location.pathname !== '/entry' ? navBlock : null}
       </div>
       <div className={filter ? 'date-form' : 'date-form-hide'}>
-        <p className="date-input">
+        <div className="date-form-input">
+        <div className="date-input">
           Date from
-          <input
-            type="date"
-            name="filterFrom"
-            onChange={filterOnCnange}
+          <DatePicker
+            selected={filterFrom === null ? null : new Date(filterFrom)}
             className="date"
+            dateFormat="dd.MM.yyyy"
+            onChange={(date) => dispatch(actions.ChangeFilterFrom(date))}
           />
-        </p>
-        <p className="date-input">
+        </div>
+        <div className="date-input">
           Date to
-          <input
-            type="date"
-            name="filterTo"
-            onChange={filterOnCnange}
+          <DatePicker
+            selected={filterTo}
             className="date"
+            dateFormat="dd.MM.yyyy"
+            onChange={(date) => dispatch(actions.ChangeFilterTo(date))}
           />
-        </p>
+          </div>
+        </div>
       </div>
     </div>
   )

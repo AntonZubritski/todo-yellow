@@ -1,3 +1,82 @@
+@media screen and (max-device-width: 375pt) {
+    .container .sport-list {
+        margin-top: 60pt;
+        width: 100%;
+    }
+    .sport-list .sport-item {
+        justify-content: center;
+        margin-bottom: 0;
+        align-items: center;
+        border-bottom: 2pt #eaeaea solid ;
+    }
+    .sport-list .sport-item ul {
+        margin: 45pt 0;
+    }
+    .sport-item .human-block {
+        margin-right: 46pt;
+        width: 87pt;
+        height: 87pt;
+    }
+    .human-block .human-icon {
+        width: 87pt;
+        height: 87pt;
+        z-index: 4;
+    }
+    .human-block .a {
+        width: 87pt;
+        height: 40pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        background-color: #e7b6159a;
+        line-height: 35pt;
+        opacity: 0;
+        position: relative;
+        grid-area: a;
+        border-radius: 50pt 50pt 0 0;
+        transition: 0.3s linear;
+        cursor: url('../../img/cursor.cur'), auto;
+        }
+    .human-block .b { 
+        width: 87pt;
+        height: 40pt;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        background-color: #e746159a;
+        line-height: 40pt;
+        opacity: 0;
+        position: relative;
+        grid-area: b;
+        border-radius: 0 0 50pt 50pt;
+        transition: 0.3s linear;
+        cursor: url('../../img/cursor.cur'), auto;   
+    }
+    .human-block .a-active {
+        margin-top: -40pt;
+        opacity: 1;
+        z-index: 0;
+        height: 80pt;
+        align-items: flex-start;
+    }
+    .human-block .b-active {
+        margin-top: 0pt;
+        opacity: 1;
+        z-index: 0;
+        height: 80pt;
+        align-items: flex-end;
+    }
+    .sport-list .sport-item ul li {
+        font-size: 14pt;
+        margin-bottom: 12pt;
+    }
+    .sport-list .sport-item ul li.date-workout {
+        font-size: 14pt;
+        margin-bottom: 9pt;
+    }
+}
 .sport-list {
     display: flex;
     margin-top: 113px;

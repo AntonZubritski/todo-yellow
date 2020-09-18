@@ -1,7 +1,7 @@
 export default class ApiServices {
   _urlBase = 'https://jogtracker.herokuapp.com/api/v1'
   _token = localStorage.getItem('jwt')
-
+  set_token = (token) => this._token = token
 
   headers = (token) => {
     return {
@@ -46,11 +46,12 @@ export default class ApiServices {
   // //------Transform Function
   _transformJogs = (jog) => {
     return {
-      date: jog.date*1000,
+      date: jog.date * 1000,
       distance: jog.distance,
       id: jog.id,
       time: jog.time,
       user_id: jog.user_id,
+      mobile_btn: false
     }
   }
   _transformDate = (created) => {

@@ -1,3 +1,20 @@
+
+@media screen and (max-device-width: 375pt) {
+    html, body {
+        height: 667pt !important;
+        width: 375pt;
+    }
+    body .grid-container {
+        display: grid;
+        min-height: 100vh;
+        font-size: 18pt;
+        grid-template-columns: 1fr;
+        grid-template-rows: 77pt 1fr;
+        grid-template-areas:
+            "head"
+            "container";
+        }
+    }
 * {
 	margin: 0;
     border: 0;

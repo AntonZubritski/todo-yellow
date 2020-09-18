@@ -4,8 +4,8 @@ const initialStatePage = {
   distance: '',
   time: '',
   date: '',
-  filterFrom: '1970-01-01',
-  filterTo: new Date().toISOString(),
+  filterFrom: new Date('01/01/2020').getTime(),
+  filterTo: new Date().getTime(),
 }
 const initialStateService = {
   token: null,
@@ -18,13 +18,31 @@ const initialStateService = {
 const pageReducer = (state = initialStatePage, action) => {
   switch (action.type) {
     case constants.SET_JOGS:
-      return { ...state, jogs: action.payload }
+      return {
+        ...state,
+        jogs: action.payload,
+      }
     case constants.ON_CHANGE:
       return { ...state, [action.name]: action.value }
+    case constants.CHANGE_MODAL_DATE:
+      return { ...state, date: action.value }
     case constants.DELETE_JOG:
       return {
         ...state,
         jogs: state.jogs.filter((el) => el.id !== action.id),
+      }
+
+    case constants.MOBILE_CLICK_JOG:
+      return {
+        ...state,
+        jogs: state.jogs.map((el, key) => {
+          if (el.id === action.id ) {
+            return {...state.jogs[key], mobile_btn: true}
+          } else {
+            return {...state.jogs[key], mobile_btn: false}
+          }
+          }
+        )
       }
     case constants.PUSH_ADD_FORM:
       return {
@@ -43,10 +61,15 @@ const pageReducer = (state = initialStatePage, action) => {
         time: '',
         date: '',
       }
-    case constants.CHANGE_FILTER:
+    case constants.CHANGE_FILTER_FROM:
       return {
         ...state,
-        [action.name]: new Date(action.value).toISOString(),
+        filterFrom: new Date(action.value).getTime(),
+      }
+    case constants.CHANGE_FILTER_TO:
+      return {
+        ...state,
+        filterTo: new Date(action.value).getTime(),
       }
     default:
       return state
@@ -55,7 +78,7 @@ const pageReducer = (state = initialStatePage, action) => {
 const serviceReducer = (state = initialStateService, action) => {
   switch (action.type) {
     case constants.SET_TOKEN:
-      return { ...state, token: action.payload, isAuth: true }
+      return { ...state, isAuth: true }
     case constants.TOGGLE_FILTER:
       return { ...state, filter: !state.filter }
     case constants.TOGGLE_MODAL:

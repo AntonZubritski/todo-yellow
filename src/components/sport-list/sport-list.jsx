@@ -2,8 +2,8 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import * as actions from '../../redux/actions'
 import humanIcon from '../../img/icon.svg'
-import './sport-list.css'
 import NullJogs from '../null-jogs'
+import './sport-list.css'
 
 const SportList = () => {
   const { jogs, filterFrom, filterTo } = useSelector((state) => state.pageStore)
@@ -20,23 +20,21 @@ const SportList = () => {
     const year = new Date(created).getFullYear()
     return `${day}.${month}.${year}`
   }
+  
   const jogItem = (jog, key) => {
-    if (
-      filterFrom <= new Date(jog.date).toISOString() &&
-      filterTo >= new Date(jog.date).toISOString()
-    ) {
+    if (filterFrom <= jog.date && filterTo >= jog.date) {
       return (
         <div className="sport-item" key={`${key}${jog.id}`}>
           <div className="human-block">
-            <img src={humanIcon} className="human-icon" alt="icon" />
+            <img src={humanIcon} className="human-icon" onClick={()=>dispatch(actions.MobileClicJog(jog.id))} alt="icon" />
             <div
-              className="a"
+              className={jog.mobile_btn ? 'a a-active' : 'a'}
               onClick={() => dispatch(actions.EditButton(jog))}
             >
               Edit
             </div>
             <div
-              className="b"
+              className={jog.mobile_btn ? 'b b-active' : 'b'}
               onClick={() =>
                 dispatch(actions.DeleteJogFetch(jog.id, jog.user_id))
               }

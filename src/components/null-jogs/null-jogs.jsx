@@ -1,26 +1,31 @@
 import React from 'react'
 import * as actions from '../../redux/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import './null-jogs.css'
 import sadEmoticon from '../../img/sad-emoticon.svg'
 
 const NullJogs = () => {
   const dispatch = useDispatch()
+  const { jogs } = useSelector((state) => state.pageStore)
+
+  const sadBlock = (
+    <div className="sad-block">
+      <img src={sadEmoticon} className="sad-emoticon" alt="SoSad" />
+      <p>Nothing is there</p>
+      <input
+        type="button"
+        value="Create your first jog"
+        className="btn-create"
+        onClick={() => {
+          dispatch(actions.ModalActive())
+        }}
+      />
+    </div>
+  )
 
   return (
     <div className="container">
-      <div className="sad-block">
-        <img src={sadEmoticon} className="sad-emoticon" alt="SoSad" />
-        <p>Nothing is there</p>
-        <input
-          type="button"
-          value="Create your first jog"
-          className="btn-create"
-          onClick={() => {
-            dispatch(actions.ModalActive())
-          }}
-        />
-      </div>
+      {jogs.length !== 0 ? null : sadBlock}
     </div>
   )
 }

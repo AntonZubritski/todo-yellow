@@ -14,24 +14,23 @@ const App = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const tok = localStorage.getItem('jwt')
-
-     isAuth ?  history.push('/jogs') : history.push('/entry') 
-    
+    const localToken = localStorage.getItem('jwt')
+    if (isAuth) {
+      history.push('/jogs')
+    } else if (!isAuth && localToken !== null) {
+      dispatch(actions.SetToken(localToken))
+    } else {
+      history.push('/entry')
+    }
   }, [isAuth])
 
   return (
     <Switch>
-      {/* <Route
-        path="/jogs"
-        render={() => (isAuth ? <JogsPage  /> : <Redirect to="/entry" />)}
-      /> */}
-      <Route exact path="/jogs" component={JogsPage} />
       <Route exact path="/entry" component={StartPage} />
+      <Route exact path="/jogs" component={JogsPage} />
       <Route path="/info" component={InfoPage} />
       <Route path="/contact" component={ContactPage} />
       <Redirect to="/entry" />
-      
     </Switch>
   )
 }

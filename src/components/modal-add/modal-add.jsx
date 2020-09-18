@@ -2,15 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import * as actions from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 import './modal-add.css'
 import cancel from '../../img/cancel.svg'
-
-const _transformDate = (created) => {
-  const day = new Date(created).toLocaleString('en', { day: '2-digit' })
-  const month = new Date(created).toLocaleString('en', { month: '2-digit' })
-  const year = new Date(created).getFullYear()
-  return `${year}-${month}-${day}`
-}
 
 const ModalAdd = () => {
   const modalState = useSelector((state) => state.serviceStore.modalState)
@@ -69,13 +64,13 @@ const ModalAdd = () => {
           </label>
           <label>
             Date
-            <input
-              type="date"
-              name="date"
-              value={_transformDate(pStore.date)}
-              onChange={onChangeInput}
-              required
-            />
+            <div>
+              <DatePicker
+                selected={pStore.date}
+                dateFormat="dd.MM.yyyy"
+                onChange={(date) => dispatch(actions.OnChangeModalDate(date))}
+              />
+            </div>
           </label>
           <input type="submit" value={modalState ? 'Save' : 'Edit'} />
         </form>

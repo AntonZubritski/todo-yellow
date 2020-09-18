@@ -1,9 +1,13 @@
+@media screen and (max-device-width: 375pt) {
+  .grid-container .btn-add {
+    right: 30pt;
+    bottom: 30pt;
+  }
+}
 .btn-add {
   position: fixed;
   right: 40px;
   bottom: 40px;
-  width: 60px;
-  height: 60px;
   justify-self: right;
   background-color: #ffffff;
 }

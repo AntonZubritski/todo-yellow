@@ -1,8 +1,54 @@
+@media screen and (max-device-width: 375pt) {
+    .container .block-add {
+        display: flex;
+        flex-direction: column;
+        width: 307pt;
+        height: 380pt;
+        margin-top: 82pt;
+        border-radius: 29pt;
+    }
+    .block-add .form-add {
+        padding: 0 35pt 0px 35pt;
+    }
+    .block-add .form-add label {
+        font-size: 13pt;
+    }
+    .block-add .form-add label {
+        padding-bottom: 20pt;
+        display: block;
+    }
+    .block-add .form-add label input {
+        width: 236pt;
+        height: 31pt;
+        border-radius: 7pt;
+        margin-top: 6pt;
+        border: solid 1pt #979797;
+        font: 400 11.3333pt Arial;
+    }
+    .block-add .cancel-icon {
+        float: right;
+        width: 27px;
+        height: 27px;
+        margin: 19pt 21pt 26pt 0;
+        object-fit: contain;
+        background-color: var(--white-two);
+        cursor: none;
+        transition: 0.4s;
+    }
+    .block-add .form-add input[type=submit] {
+        align-self: center;
+        width: 237pt;
+        height: 42pt;
+        border-radius: 25.2pt;
+        border: solid 2pt #ffffff;
+        margin-top: 16pt;
+    }
+}
 .cancel-icon {
     float: right;
     width: 27px;
     height: 27px;
-    margin: -25px 25px 50px 0;
+    margin: 27px 27px 50px 0;
     object-fit: contain;
     background-color: var(--white-two);
     cursor: none;
@@ -13,7 +59,7 @@
 }
 .block-add {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     flex-direction: column;
     width: 503px;
     height: 379px;
@@ -29,8 +75,8 @@
 .form-add label {
     display: flex;
     justify-content: space-between;
-    padding: 0 0 25px 0;
     font-size: 16px;
+    padding-bottom: 25px;
     font-weight: normal;
 }
 .form-add label input {
@@ -45,6 +91,7 @@
     align-self: center;
     width: 320px;
     height: 42px;
+    margin-top: 16pt;
     color: #ffffff;
     background-color: #7ed321;
     border-radius: 25.2px;

@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/todo-yellow/static/css/main.9ebea2e4.chunk.css",
+    "main.css": "/todo-yellow/static/css/main.b73e09b2.chunk.css",
     "main.js": "/todo-yellow/static/js/main.77e66ad3.chunk.js",
     "main.js.map": "/todo-yellow/static/js/main.77e66ad3.chunk.js.map",
     "runtime-main.js": "/todo-yellow/static/js/runtime-main.ca94e892.js",
@@ -9,10 +9,10 @@
     "static/js/2.e9ede792.chunk.js": "/todo-yellow/static/js/2.e9ede792.chunk.js",
     "static/js/2.e9ede792.chunk.js.map": "/todo-yellow/static/js/2.e9ede792.chunk.js.map",
     "index.html": "/todo-yellow/index.html",
-    "precache-manifest.82a7cbf54856bfc13f07fa7398790aa2.js": "/todo-yellow/precache-manifest.82a7cbf54856bfc13f07fa7398790aa2.js",
+    "precache-manifest.5843cb844ddef316510376a8e30ef428.js": "/todo-yellow/precache-manifest.5843cb844ddef316510376a8e30ef428.js",
     "service-worker.js": "/todo-yellow/service-worker.js",
     "static/css/2.8d4cdce2.chunk.css.map": "/todo-yellow/static/css/2.8d4cdce2.chunk.css.map",
-    "static/css/main.9ebea2e4.chunk.css.map": "/todo-yellow/static/css/main.9ebea2e4.chunk.css.map",
+    "static/css/main.b73e09b2.chunk.css.map": "/todo-yellow/static/css/main.b73e09b2.chunk.css.map",
     "static/js/2.e9ede792.chunk.js.LICENSE.txt": "/todo-yellow/static/js/2.e9ede792.chunk.js.LICENSE.txt",
     "static/media/sport-list.css": "/todo-yellow/static/media/cursor.82e9431f.cur"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.ca94e892.js",
     "static/css/2.8d4cdce2.chunk.css",
     "static/js/2.e9ede792.chunk.js",
-    "static/css/main.9ebea2e4.chunk.css",
+    "static/css/main.b73e09b2.chunk.css",
     "static/js/main.77e66ad3.chunk.js"
   ]
 }

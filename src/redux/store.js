@@ -1,8 +1,14 @@
-import { createStore, applyMiddleware } from 'redux'
-import reducer from './reducer'
+import { createStore, applyMiddleware, combineReducers } from 'redux'
+import { pageReducer, serviceReducer } from './reducer'
 import thunk from 'redux-thunk'
 
-const store = createStore(reducer, applyMiddleware(thunk))
+const reducers = combineReducers({
+  pageStore: pageReducer,
+  serviceStore: serviceReducer,
+})
+
+const store = createStore(reducers, applyMiddleware(thunk))
+
 
 const update = () => {
     console.log(store.getState())

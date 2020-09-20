@@ -1,0 +1,21 @@
+@media screen and (max-device-width: 375pt) {
+  .grid-container .btn-add {
+    right: 30pt;
+    bottom: 30pt;
+  }
+}
+.btn-add {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  justify-self: right;
+  background-color: #ffffff;
+}
+.add {
+    object-fit: contain;
+    cursor: none;
+    transition: 0.4s;
+}
+.add:hover {
+  transform: rotate(90deg);
+}

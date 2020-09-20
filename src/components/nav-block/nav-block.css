@@ -1,0 +1,46 @@
+@media screen and (max-device-width: 375pt) {
+    .navBlock ul.nav-header {
+        padding: 4px;
+        display: none;
+    }
+    .container ul.nav-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 127pt;
+        width: 170pt;
+        height: 150pt;
+        padding: 0;
+    }
+    .container ul.nav-header li {
+        margin-right: 0;
+        padding-bottom: 20px;
+    }
+    .container ul.nav-header li a {
+        color: #424242;
+        font-size: 25pt;
+    }
+    .container ul.nav-header li a.active {
+        color: #7ed321; 
+    }
+}
+   
+ul.nav-header {
+    padding: 4px;
+}
+ul.nav-header li {
+    display: inline;
+    transition: 0.1s linear;
+    margin-right: 45px;
+    padding-bottom: 4.1px;
+}
+ul.nav-header li a {
+    color: #ffffff;
+}
+ul.nav-header li:hover {
+    border-bottom: 3px solid #95959557;
+}
+ul.nav-header li.active {
+    border-bottom: 2px solid white; 
+}

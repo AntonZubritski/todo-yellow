@@ -5,63 +5,25 @@
     .head .header {        
         height: 77pt;
     }
-    .head .date-form {
-        height: 60pt;
-        font-size: 13pt;
-    }
-    .head .date-form-hide {
-        margin-top: -60pt;
-        height: 60pt;
-        font-size: 13pt;
-    }
-    .date-form .date-form-input {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0 29pt;
-    }
-    .date-form-hide .date-form-input {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        margin: 0 29pt;
-    }
-    .date-form .date-input {
-        margin: 0 ;
-    }
-    .date-form-hide .date-input {
-        margin: 0 ;
+    .head .header.white {        
+        background-color: #ffffff;
     }
     .header .logo {
-        width: 98pt;
-        height: 37pt;
         margin-left: 25pt;
-        object-fit: contain;
     }
-    .filter-block .filter {
-        width: 26pt;
-        height: 26pt;
+    .navBlock .menu-icon {
+        display: block;
     }
-    .filter-block .filter-active {
-        width: 39pt;
-        height: 39pt;
-    }
-    .navBlock ul.nav-header {
-        padding: 4px;
-        display: none;
+    .navBlock .menu-icon:active {
+        background-color: #979797;
     }
     .navBlock .filter-block {
-        width: 39pt;
-        height: 39pt;
         margin-right: 45pt;
     }
-    .date-input .date {
-        height: 31pt;
-        margin-left: 16pt;
-        border-radius: 11pt;
-        border: solid 1pt #979797;
+    .filter-block.disabled {
+        display: none;
     }
-   }
+}
 .head {
     display: grid;
     grid-template-columns: 1fr;
@@ -82,10 +44,7 @@
     background-color: #7ed321;
 }
 .logo {
-    width: 147px;
-    height: 56px;
     margin-left: 37px;
-    object-fit: contain;
 }
 .navBlock {
     display: inline-flex;
@@ -94,100 +53,5 @@
 }
 .menu-icon {
     margin-right: 25pt;
-}
-ul.nav-header {
-    padding: 4px;
-}
-ul.nav-header li {
-    display: inline;
-    transition: 0.1s linear;
-    margin-right: 45px;
-    padding-bottom: 4.1px;
-}
-ul.nav-header li a {
-    color: #ffffff;
-}
-ul.nav-header li:hover {
-    border-bottom: 3px solid #95959557;
-}
-ul.nav-header li.active {
-    border-bottom: 2px solid white; 
-}
-.filter-active {
-    width: 39px;
-    height: 39px;
-    object-fit: contain;
-    cursor: pointer;
-}
-.filter {
-    width: 26px;
-    height: 26px;
-    object-fit: contain;
-    cursor: pointer;
-  }
-.filter-block {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 39px;
-    height: 39px;
-    margin-right: 30px;
-  }
-
-.date-input input[type=date] ::-webkit-inner-spin-button {
-    display: none !important;
-}
-.date-input input[type=date] {
-    font: 400 10px Arial;
-}
-.date-form-hide {
-    margin-top: -60px;
-    display: flex;
-    z-index: -1;
-    transition: 0.5s linear;
-    justify-content: center;
-    grid-area: date-form;
-    width: 100%;
-    height: 60px;
-    background-color: #eaeaea;
-    color: #979797;
-    font-size: 13px;
-    font-weight: normal;
-    letter-spacing: normal;
-    text-align: center;
-}
-.date-form {
-    display: flex;
-    justify-content: center;
-    transition: 0.5s linear;
-    grid-area: date-form;
-    width: 100%;
-    height: 60px;
-    background-color: #eaeaea;
-    color: #979797;
-    font-size: 13px;
-    font-weight: normal;
-    letter-spacing: normal;
-    text-align: center;
-}
-.date-form-input {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0 530px;
-}
-.date {
-    text-align: center;
-    width: 100px;
-    height: 31px;
-    margin-left: 15px;
-    border-radius: 11px;
-    color: #979797;
-    border: solid 1px #979797;
-    background-color: #ffffff;
-    padding: 0 !important;
-}
-.date-input {
-    align-self: center;
-    margin-left: 45px;
+    display: none;
 }

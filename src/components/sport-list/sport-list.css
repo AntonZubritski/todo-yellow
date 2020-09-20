@@ -55,17 +55,17 @@
         cursor: url('../../img/cursor.cur'), auto;   
     }
     .human-block .a-active {
-        margin-top: -40pt;
+        margin-top: -27pt;
         opacity: 1;
         z-index: 0;
-        height: 80pt;
+        height: 70pt;
         align-items: flex-start;
     }
     .human-block .b-active {
         margin-top: 0pt;
         opacity: 1;
         z-index: 0;
-        height: 80pt;
+        height: 70pt;
         align-items: flex-end;
     }
     .sport-list .sport-item ul li {
@@ -83,7 +83,7 @@
     flex-direction: column;
 }
 .sport-item {
-    margin-bottom: 88.3px;
+    margin-bottom: 78.3px;
     display: inline-flex;
 }
 .sport-item ul {
@@ -95,11 +95,13 @@
     display: block;
     margin-bottom: 12px;
 }
+.sport-list ul li:last-child {
+    margin-bottom: 0;
+}
 .sport-item ul li u {
     text-decoration: none;
     color: #979797;
 }
-
 .sport-item ul li.date-workout {
     font-size: 14px;
     font-weight: normal;

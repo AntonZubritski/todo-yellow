@@ -1,6 +1,5 @@
 import {
   SET_TOKEN,
-  ADD_AUTH_ERR,
   SET_JOGS,
   TOGGLE_FILTER,
   TOGGLE_MODAL,
@@ -13,6 +12,7 @@ import {
   CHANGE_FILTER_TO,
   CHANGE_MODAL_DATE,
   MOBILE_CLICK_JOG,
+  SWITCH_MENU_ICON
 } from './constants'
 
 import ApiArticles from '../services/api-services'
@@ -25,10 +25,6 @@ export const GetJogsFetch = () => {
       .then((info) => {
         dispatch(SetJogs(info))
       })
-      .catch((err) => {
-        console.log(err)
-        dispatch(AddAuthErr(err.message))
-      })
   }
 }
 export const LogInFetch = () => {
@@ -39,9 +35,6 @@ export const LogInFetch = () => {
         api.set_token(token.response.access_token)
         localStorage.setItem('jwt', token.response.access_token)
         dispatch(SetToken())
-      })
-      .catch((err) => {
-        dispatch(AddAuthErr(err.message))
       })
   }
 }
@@ -58,10 +51,6 @@ export const PostJogFetch = (distance, time, date) => {
         dispatch(GetJogsFetch())
         dispatch(ModalActive())
         dispatch(ClearAddForm())
-      })
-      .catch((err) => {
-        console.log(err)
-        dispatch(AddAuthErr(err.message))
       })
   }
 }
@@ -82,12 +71,9 @@ export const EditJogFetch = (obj) => {
         dispatch(ClearAddForm())
         dispatch(SwitchModalState())
       })
-      .catch((err) => {
-        console.log(err)
-        dispatch(AddAuthErr(err.message))
-      })
   }
 }
+
 export const DeleteJogFetch = (id, userId) => {
   const user = {
     jog_id: id,
@@ -99,7 +85,6 @@ export const DeleteJogFetch = (id, userId) => {
     })
   }
 }
-
 export const CancelButton = () => {
   return (dispatch) => {
     dispatch(ModalActive())
@@ -130,13 +115,9 @@ const SetJogs = (payload) => ({
   type: SET_JOGS,
   payload,
 })
-export const MobileClicJog= (id) => ({
+export const MobileClickJog= (id) => ({
   type: MOBILE_CLICK_JOG,
   id
-})
-const AddAuthErr = (payload) => ({
-  type: ADD_AUTH_ERR,
-  payload,
 })
 export const ChangeFilterFrom = (value) => ({
   type: CHANGE_FILTER_FROM,
@@ -149,4 +130,7 @@ export const ChangeFilterTo = (value) => ({
 export const OnChangeModalDate = (value) => ({
   type: CHANGE_MODAL_DATE,
   value,
+})
+export const SwitchMenuIcon = () => ({
+  type: SWITCH_MENU_ICON,
 })

@@ -4,15 +4,15 @@ const initialStatePage = {
   distance: '',
   time: '',
   date: '',
-  filterFrom: new Date('01/01/2020').getTime(),
+  filterFrom: new Date(0).getTime(),
   filterTo: new Date().getTime(),
 }
 const initialStateService = {
-  token: null,
   filter: false,
   modal: false,
   modalState: true,
   isAuth: false,
+  menuIcon: false,
 }
 
 const pageReducer = (state = initialStatePage, action) => {
@@ -21,6 +21,7 @@ const pageReducer = (state = initialStatePage, action) => {
       return {
         ...state,
         jogs: action.payload,
+        filterTo: Math.max.apply(null, action.payload.map((jogs) => jogs.date))
       }
     case constants.ON_CHANGE:
       return { ...state, [action.name]: action.value }
@@ -85,6 +86,8 @@ const serviceReducer = (state = initialStateService, action) => {
       return { ...state, modal: !state.modal, filter: false, modalState: true }
     case constants.SWITCH_MODAL:
       return { ...state, modalState: !state.modalState }
+    case constants.SWITCH_MENU_ICON:
+      return { ...state, menuIcon: !state.menuIcon, filter: false }
     default:
       return state
   }

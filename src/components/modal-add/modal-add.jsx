@@ -3,13 +3,13 @@ import { NavLink } from 'react-router-dom'
 import * as actions from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import DatePicker from 'react-datepicker'
+import { CancelSvg } from '../svg-icons/svg-icons'
 import 'react-datepicker/dist/react-datepicker.css'
 import './modal-add.css'
-import cancel from '../../img/cancel.svg'
 
 const ModalAdd = () => {
   const modalState = useSelector((state) => state.serviceStore.modalState)
-  const pStore = useSelector((state) => state.pageStore)
+  const pageStore = useSelector((state) => state.pageStore)
   const dispatch = useDispatch()
 
   const onChangeInput = (e) => {
@@ -17,12 +17,12 @@ const ModalAdd = () => {
     dispatch(actions.OnChange(name, value))
   }
   const onSubmit = (e) => {
-    const { distance, time, date } = pStore
+    const { distance, time, date } = pageStore
     e.preventDefault()
     if (modalState) {
       dispatch(actions.PostJogFetch(distance, time, date))
     } else {
-      dispatch(actions.EditJogFetch(pStore))
+      dispatch(actions.EditJogFetch(pageStore))
     }
   }
 
@@ -30,11 +30,12 @@ const ModalAdd = () => {
     <div className="container">
       <div className="block-add">
         <NavLink to="/jogs">
-          <img
-            src={cancel}
-            className="cancel-icon"
-            alt="cancel"
+          <CancelSvg
             onClick={() => dispatch(actions.CancelButton())}
+            className="cancel-icon"
+            width={'27'}
+            height={'27'}
+            color={'#ffffff'}
           />
         </NavLink>
         <form className="form-add" onSubmit={onSubmit}>
@@ -44,7 +45,7 @@ const ModalAdd = () => {
               type="number"
               name="distance"
               placeholder="km-m"
-              value={pStore.distance}
+              value={pageStore.distance}
               onChange={onChangeInput}
               pattern="[0-9]"
               required
@@ -56,7 +57,7 @@ const ModalAdd = () => {
               type="number"
               name="time"
               placeholder="min"
-              value={pStore.time}
+              value={pageStore.time}
               onChange={onChangeInput}
               pattern="[0-9]"
               required
@@ -66,7 +67,7 @@ const ModalAdd = () => {
             Date
             <div>
               <DatePicker
-                selected={pStore.date}
+                selected={pageStore.date}
                 dateFormat="dd.MM.yyyy"
                 onChange={(date) => dispatch(actions.OnChangeModalDate(date))}
               />

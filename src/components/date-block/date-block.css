@@ -1,0 +1,129 @@
+@media screen and (max-device-width: 375pt) {
+    .head .date-form {
+        height: 60pt;
+        font-size: 13pt;
+    }
+    .head .date-form-hide {
+        margin-top: -60pt;
+        height: 60pt;
+        font-size: 13pt;
+    }
+    .date-form .date-form-input {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 29pt;
+    }
+    .date-form-hide .date-form-input {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 29pt;
+    }
+    .date-form .date-input {
+        margin: 0 ;
+        display: inline-flex;
+        align-items: center;
+    }
+    .date-form-hide .date-input {
+        margin: 0 ;
+        display: inline-flex;
+        align-items: center;
+    }
+    .date-input .date {
+        height: 31pt;
+        width: 72pt;
+        margin-left: 16pt;
+        border-radius: 11pt;
+        border: solid 1pt #979797;
+    }
+   }
+.filter-active {
+    width: 39px;
+    height: 39px;
+    object-fit: contain;
+    cursor: pointer;
+}
+.filter {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    cursor: pointer;
+}
+.filter-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 30px;
+}
+.date-input input[type=date] ::-webkit-inner-spin-button {
+    display: none !important;
+}
+.date-input input[type=date] {
+    font: 400 10px Arial;
+}
+.date-form-hide {
+    margin-top: -60px;
+    display: flex;
+    z-index: -1;
+    transition: 0.5s linear;
+    justify-content: center;
+    grid-area: date-form;
+    width: 100%;
+    height: 60px;
+    background-color: #eaeaea;
+    color: #979797;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+.date-form {
+    display: flex;
+    justify-content: center;
+    transition: 0.5s linear;
+    grid-area: date-form;
+    width: 100%;
+    height: 60px;
+    background-color: #eaeaea;
+    color: #979797;
+    font-size: 13px;
+    font-weight: normal;
+    letter-spacing: normal;
+    text-align: center;
+}
+.date-form-input {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 530px;
+}
+.date {
+    text-align: center;
+    width: 100px;
+    height: 31px;
+    margin-left: 15px;
+    border-radius: 11px;
+    color: #979797;
+    border: solid 1px #979797;
+    background-color: #ffffff;
+    padding: 0 !important;
+}
+.date-input {
+    display: inline-flex;
+    align-items: center;
+    align-self: center;
+    margin-left: 45px;
+}
+.react-datepicker__portal {
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.react-datepicker__input-container {
+    display: inline-block;
+    padding: 0;
+    border: 0;
+}
+
+   

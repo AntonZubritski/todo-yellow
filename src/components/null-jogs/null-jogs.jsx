@@ -2,7 +2,8 @@ import React from 'react'
 import * as actions from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import './null-jogs.css'
-import sadEmoticon from '../../img/sad-emoticon.svg'
+// import sadEmoticon from '../../img/sad-emoticon.svg'
+import { SadEmoticonSvg } from '../svg-icons/svg-icons'
 
 const NullJogs = () => {
   const dispatch = useDispatch()
@@ -10,7 +11,8 @@ const NullJogs = () => {
 
   const sadBlock = (
     <div className="sad-block">
-      <img src={sadEmoticon} className="sad-emoticon" alt="SoSad" />
+      {/* <img src={sadEmoticon} className="sad-emoticon" alt="SoSad" /> */}
+      <SadEmoticonSvg className={"sad-emoticon"} />
       <p>Nothing is there</p>
       <input
         type="button"

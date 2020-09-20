@@ -1,0 +1,29 @@
+@media screen and (max-device-width: 375pt) {
+    .container .block-info {
+        width: 325pt;
+        margin-top: 24pt;
+    }
+    .container .block-info .info {
+        font-size: 25pt;
+    }
+    .container .block-info p {
+        font-size: 12pt;
+        line-height: 24pt;
+    }
+}
+.block-info {
+    width: 614px;
+    margin-top: 85px;
+}
+.block-info .info {
+    font-size: 36px;
+    color: #7ed321;
+    font-weight: bold;
+}
+.block-info p {
+    color: #979797;
+    margin: 15px 0 15px 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.71;
+}

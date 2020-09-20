@@ -1,5 +1,6 @@
 export default class ApiServices {
   _urlBase = 'https://jogtracker.herokuapp.com/api/v1'
+  
   _token = localStorage.getItem('jwt')
   set_token = (token) => this._token = token
 

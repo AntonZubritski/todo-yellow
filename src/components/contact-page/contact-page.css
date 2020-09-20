@@ -1,3 +1,11 @@
+@media screen and (max-device-width: 375pt){
+    .container .contact {
+        width: 307pt;
+        height: 380pt;
+        background-color: #E990F9;
+        margin-top: 82pt;
+    }
+}
 .contact {
     justify-content: flex-start;
     margin-top: 118px;

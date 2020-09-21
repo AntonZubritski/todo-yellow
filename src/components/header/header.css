@@ -26,7 +26,7 @@
 }
 .head {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     grid-template-rows: 116px auto;
     grid-template-areas:
       "header"

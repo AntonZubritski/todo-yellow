@@ -1,4 +1,5 @@
 import {
+  ADD_ERR,
   SET_TOKEN,
   SET_JOGS,
   TOGGLE_FILTER,
@@ -12,7 +13,7 @@ import {
   CHANGE_FILTER_TO,
   CHANGE_MODAL_DATE,
   MOBILE_CLICK_JOG,
-  SWITCH_MENU_ICON
+  SWITCH_MENU_ICON,
 } from './constants'
 
 import ApiArticles from '../services/api-services'
@@ -25,6 +26,9 @@ export const GetJogsFetch = () => {
       .then((info) => {
         dispatch(SetJogs(info))
       })
+      .catch((err) => {
+        dispatch(AddErr(err.message))
+      })
   }
 }
 export const LogInFetch = () => {
@@ -35,6 +39,9 @@ export const LogInFetch = () => {
         api.set_token(token.response.access_token)
         localStorage.setItem('jwt', token.response.access_token)
         dispatch(SetToken())
+      })
+      .catch((err) => {
+        dispatch(AddErr(err.message))
       })
   }
 }
@@ -51,6 +58,9 @@ export const PostJogFetch = (distance, time, date) => {
         dispatch(GetJogsFetch())
         dispatch(ModalActive())
         dispatch(ClearAddForm())
+      })
+      .catch((err) => {
+        dispatch(AddErr(err.message))
       })
   }
 }
@@ -71,6 +81,9 @@ export const EditJogFetch = (obj) => {
         dispatch(ClearAddForm())
         dispatch(SwitchModalState())
       })
+      .catch((err) => {
+        dispatch(AddErr(err.message))
+      })
   }
 }
 
@@ -80,9 +93,14 @@ export const DeleteJogFetch = (id, userId) => {
     user_id: userId,
   }
   return (dispatch) => {
-    api.fetchApi.deleteJog(user).then(() => {
-      dispatch(DeleteJog(id))
-    })
+    api.fetchApi
+      .deleteJog(user)
+      .then(() => {
+        dispatch(DeleteJog(id))
+      })
+      .catch((err) => {
+        dispatch(AddErr(err.message))
+      })
   }
 }
 export const CancelButton = () => {
@@ -99,11 +117,6 @@ export const EditButton = (payload) => {
     dispatch(SwitchModalState())
   }
 }
-export const OnChange = (name, value) => ({
-  type: ON_CHANGE,
-  name,
-  value,
-})
 export const SetToken = () => ({ type: SET_TOKEN })
 export const FilterActive = () => ({ type: TOGGLE_FILTER })
 export const ModalActive = () => ({ type: TOGGLE_MODAL })
@@ -111,13 +124,19 @@ const PushAddForm = (payload) => ({ type: PUSH_ADD_FORM, payload })
 const SwitchModalState = () => ({ type: SWITCH_MODAL })
 const ClearAddForm = () => ({ type: CLEAR_ADD_FORM })
 const DeleteJog = (id) => ({ type: DELETE_JOG, id })
+const AddErr = (err) => ({type: ADD_ERR, err})
+export const OnChange = (name, value) => ({
+  type: ON_CHANGE,
+  name,
+  value,
+})
 const SetJogs = (payload) => ({
   type: SET_JOGS,
   payload,
 })
-export const MobileClickJog= (id) => ({
+export const MobileClickJog = (id) => ({
   type: MOBILE_CLICK_JOG,
-  id
+  id,
 })
 export const ChangeFilterFrom = (value) => ({
   type: CHANGE_FILTER_FROM,

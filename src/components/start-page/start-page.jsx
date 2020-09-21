@@ -14,7 +14,7 @@ const StartPage = () => {
   return (
     <div className="grid-container">
       <Header />
-      <div className="container">
+      <div className="container in">
         <div className="block-in">
           {detectMobile.isMobile() ? (
             <BearFaceSvg color="#e990f9" width={'160pt'} height={'150pt'} />

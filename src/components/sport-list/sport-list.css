@@ -115,13 +115,13 @@
     object-fit: contain;
 }
 .human-block {
+    display: grid;
     text-align: center;
     margin-right: 46px;
     width: 87px;
     height: 87px;
-    display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows:  1fr;
     transition: 0.3s linear;
     grid-template-areas:
         "a"

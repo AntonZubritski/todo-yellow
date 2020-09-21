@@ -1,7 +1,8 @@
 @media screen and (max-device-width: 375pt) {
     .container .block-in {
         background-color: #ffffff;
-        margin-top: 141pt;
+        display: flex;
+        align-items: center;
     }
     .container .block-in .btn-in {
         width: 151pt;
@@ -17,6 +18,9 @@
     display: flex;
     align-self: center;
 }
+.container.in {
+    align-items: center;
+}
 .block-in {
     grid-area: block-in;
     display: flex;
@@ -24,7 +28,6 @@
     justify-content: center;
     width: 503px;
     height: 379px;
-    margin-top: 207px;
     border-radius: 44px;
     background-color: #e990f9;
 }

@@ -21,7 +21,10 @@ const pageReducer = (state = initialStatePage, action) => {
       return {
         ...state,
         jogs: action.payload,
-        filterTo: Math.max.apply(null, action.payload.map((jogs) => jogs.date))
+        filterTo: Math.max.apply(
+          null,
+          action.payload.map((jogs) => jogs.date)
+        ),
       }
     case constants.ON_CHANGE:
       return { ...state, [action.name]: action.value }
@@ -37,13 +40,12 @@ const pageReducer = (state = initialStatePage, action) => {
       return {
         ...state,
         jogs: state.jogs.map((el, key) => {
-          if (el.id === action.id ) {
-            return {...state.jogs[key], mobile_btn: true}
+          if (el.id === action.id) {
+            return { ...state.jogs[key], mobile_btn: true }
           } else {
-            return {...state.jogs[key], mobile_btn: false}
+            return { ...state.jogs[key], mobile_btn: false }
           }
-          }
-        )
+        }),
       }
     case constants.PUSH_ADD_FORM:
       return {
@@ -88,6 +90,8 @@ const serviceReducer = (state = initialStateService, action) => {
       return { ...state, modalState: !state.modalState }
     case constants.SWITCH_MENU_ICON:
       return { ...state, menuIcon: !state.menuIcon, filter: false }
+    case constants.ADD_ERR:
+      return { ...state, error: action.err }
     default:
       return state
   }

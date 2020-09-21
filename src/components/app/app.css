@@ -5,10 +5,9 @@
     }
     body .grid-container {
         display: grid;
-        min-height: 100vh;
         font-size: 18pt;
-        grid-template-columns: 1fr;
-        grid-template-rows: 77pt 1fr;
+        grid-template-columns: 100%;
+        grid-template-rows: 77pt auto;
         grid-template-areas:
             "head"
             "container";
@@ -19,7 +18,7 @@
     border: 0;
 }
 html, body {
-    height: 100%;
+    height: fit-content;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif; 
     font-size: 18px;
     font-weight: bold;
@@ -31,9 +30,8 @@ html, body {
 .grid-container {
     display: grid;
     min-height: 100vh;
-    min-width: max-content;
     grid-template-columns: 100%;
-    grid-template-rows: 116px 1fr;
+    grid-template-rows: 116px auto;
     grid-template-areas:
       "head"
       "container";

@@ -124,7 +124,7 @@ const PushAddForm = (payload) => ({ type: PUSH_ADD_FORM, payload })
 const SwitchModalState = () => ({ type: SWITCH_MODAL })
 const ClearAddForm = () => ({ type: CLEAR_ADD_FORM })
 const DeleteJog = (id) => ({ type: DELETE_JOG, id })
-const AddErr = (err) => ({type: ADD_ERR, err})
+const AddErr = (err) => ({ type: ADD_ERR, err })
 export const OnChange = (name, value) => ({
   type: ON_CHANGE,
   name,

@@ -1,9 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import * as actions from '../../redux/actions'
 import { useDispatch, useSelector } from 'react-redux'
-import DatePicker from 'react-datepicker'
+import * as actions from '../../redux/actions'
+import useMobileDetect from 'use-mobile-detect-hook'
 import { CancelSvg } from '../svg-icons/svg-icons'
+import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import './modal-add.css'
 
@@ -11,6 +12,7 @@ const ModalAdd = () => {
   const modalState = useSelector((state) => state.serviceStore.modalState)
   const pageStore = useSelector((state) => state.pageStore)
   const dispatch = useDispatch()
+  const mobileDetect = useMobileDetect()
 
   const onChangeInput = (e) => {
     const { name, value } = e.target
@@ -63,16 +65,17 @@ const ModalAdd = () => {
               required
             />
           </label>
-          <label>
+          <div className="date-label">
             Date
-            <div>
-              <DatePicker
-                selected={pageStore.date}
-                dateFormat="dd.MM.yyyy"
-                onChange={(date) => dispatch(actions.OnChangeModalDate(date))}
-              />
-            </div>
-          </label>
+            <DatePicker
+              className="date-modal"
+              selected={pageStore.date}
+              dateFormat="dd.MM.yyyy"
+              withPortal={mobileDetect.isMobile() ? true : false}
+              onChange={(date) => dispatch(actions.OnChangeModalDate(date))}
+            />
+          </div>
+
           <input type="submit" value={modalState ? 'Save' : 'Edit'} />
         </form>
       </div>

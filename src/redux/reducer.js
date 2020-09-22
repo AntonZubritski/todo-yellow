@@ -3,7 +3,7 @@ const initialStatePage = {
   jogs: [],
   distance: '',
   time: '',
-  date: '',
+  date: new Date(0).getTime(),
   filterFrom: new Date(0).getTime(),
   filterTo: new Date().getTime(),
 }
@@ -89,7 +89,12 @@ const serviceReducer = (state = initialStateService, action) => {
     case constants.SWITCH_MODAL:
       return { ...state, modalState: !state.modalState }
     case constants.SWITCH_MENU_ICON:
-      return { ...state, menuIcon: !state.menuIcon, filter: false }
+      return {
+        ...state,
+        menuIcon: !state.menuIcon,
+        filter: false,
+        modal: false,
+      }
     case constants.ADD_ERR:
       return { ...state, error: action.err }
     default:

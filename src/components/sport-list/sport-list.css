@@ -10,6 +10,7 @@
         border-bottom: 2pt #eaeaea solid ;
     }
     .sport-list .sport-item ul {
+        width: 125pt;
         margin: 45pt 0;
     }
     .sport-item .human-block {
@@ -87,6 +88,7 @@
     display: inline-flex;
 }
 .sport-item ul {
+    width: 165px;
     padding: 0;
 }
 .sport-item ul li {

@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12f9e1d838064c8441ffe47c5204ef60",
+    "revision": "12889a5cc0b2a6840366af9d6dcee5a9",
     "url": "/todo-yellow/index.html"
   },
   {
-    "revision": "a53183466fc0c52253f3",
+    "revision": "ada81dc74db03d2a193e",
     "url": "/todo-yellow/static/css/2.8d4cdce2.chunk.css"
   },
   {
-    "revision": "d974b43a3a4d951fa278",
-    "url": "/todo-yellow/static/css/main.4a5b9b1f.chunk.css"
+    "revision": "86a48789004bc4faa040",
+    "url": "/todo-yellow/static/css/main.9ab39f77.chunk.css"
   },
   {
-    "revision": "a53183466fc0c52253f3",
-    "url": "/todo-yellow/static/js/2.ccf391b6.chunk.js"
+    "revision": "ada81dc74db03d2a193e",
+    "url": "/todo-yellow/static/js/2.61be73bc.chunk.js"
   },
   {
     "revision": "d2966845b94a3318bf32eecc7af8015d",
-    "url": "/todo-yellow/static/js/2.ccf391b6.chunk.js.LICENSE.txt"
+    "url": "/todo-yellow/static/js/2.61be73bc.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d974b43a3a4d951fa278",
-    "url": "/todo-yellow/static/js/main.f9640b92.chunk.js"
+    "revision": "86a48789004bc4faa040",
+    "url": "/todo-yellow/static/js/main.36626585.chunk.js"
   },
   {
     "revision": "8206314901a491d2575d",

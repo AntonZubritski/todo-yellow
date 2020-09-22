@@ -10,14 +10,12 @@
     .block-add .form-add {
         padding: 0 35pt 0px 35pt;
     }
-    .block-add .form-add label {
-        font-size: 13pt;
-    }
-    .block-add .form-add label {
+    .block-add .form-add label, .form-add .date-label {
         padding-bottom: 20pt;
         display: block;
+        font-size: 13pt;
     }
-    .block-add .form-add label input {
+    .block-add .form-add label input,.form-add .date-label input {
         width: 236pt;
         height: 31pt;
         border-radius: 7pt;
@@ -72,20 +70,21 @@
     flex-direction: column;
     padding: 0 88px 0px 88px;
 }
-.form-add label {
+.form-add label, .date-label {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
     padding-bottom: 25px;
     font-weight: normal;
 }
-.form-add label input {
+.form-add label input, .date-label input {
     width: 236px;
     height: 31px;
     background-color: #ffffff;
     border-radius: 7px;
     border: solid 1px #979797;
     color: #979797;
+    text-indent: 11px;
 }
 .form-add input[type=submit] {
     align-self: center;

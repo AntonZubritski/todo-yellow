@@ -1,9 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import {
-  _transformSpeed,
-  _transformDate,
-} from '../../services/transform-components'
+import { _transformSpeed, _transformDate } from '../../services/transform-components'
 import ContainerWrapper from '../menu-mobile-wrapper'
 import HumanBlock from './human-block.jsx'
 import NullJogs from '../null-jogs'

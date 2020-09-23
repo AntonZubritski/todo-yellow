@@ -1,6 +1,6 @@
 import * as constants from './constants'
 const initialStatePage = {
-  jogs: [],
+  jogs: [''],
   distance: '',
   time: '',
   date: new Date(0).getTime(),
@@ -21,10 +21,9 @@ const pageReducer = (state = initialStatePage, action) => {
       return {
         ...state,
         jogs: action.payload,
-        filterTo: Math.max.apply(
+        filterTo: action.payload.length !== 0 ? Math.max.apply(
           null,
-          action.payload.map((jogs) => jogs.date)
-        ),
+          action.payload.map((jogs) => jogs.date)) : new Date().getTime(),
       }
     case constants.ON_CHANGE:
       return { ...state, [action.name]: action.value }

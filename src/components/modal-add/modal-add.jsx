@@ -67,6 +67,7 @@ const ModalAdd = () => {
           </label>
           <div className="date-label">
             Date
+            <div>
             <DatePicker
               className="date-modal"
               selected={pageStore.date}
@@ -74,6 +75,7 @@ const ModalAdd = () => {
               withPortal={mobileDetect.isMobile() ? true : false}
               onChange={(date) => dispatch(actions.OnChangeModalDate(date))}
             />
+            </div>
           </div>
 
           <input type="submit" value={modalState ? 'Save' : 'Edit'} />

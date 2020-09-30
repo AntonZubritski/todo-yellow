@@ -2,33 +2,33 @@ import ApiArticles from '../services/api-services'
 import { types } from './constants'
 const api = new ApiArticles()
 
-export const GetJogsFetch = () => {
+export const getJogsFetch = () => {
   return (dispatch) => {
     api.fetchApi
       .getJogs()
       .then((info) => {
-        dispatch(SetJogs(info))
+        dispatch(setJogs(info))
       })
       .catch((err) => {
-        dispatch(AddErr(err.message))
+        dispatch(addErr(err.message))
       })
   }
 }
-export const LogInFetch = () => {
+export const logInFetch = () => {
   return (dispatch) => {
     api.fetchApi
       .logToken()
       .then((token) => {
         api.set_token(token.response.access_token)
         localStorage.setItem('jwt', token.response.access_token)
-        dispatch(SetToken())
+        dispatch(setToken())
       })
       .catch((err) => {
-        dispatch(AddErr(err.message))
+        dispatch(addErr(err.message))
       })
   }
 }
-export const PostJogFetch = (distance, time, date) => {
+export const postJogFetch = (distance, time, date) => {
   const jog = {
     distance: distance,
     time: time,
@@ -38,16 +38,16 @@ export const PostJogFetch = (distance, time, date) => {
     api.fetchApi
       .postJog(jog)
       .then(() => {
-        dispatch(GetJogsFetch())
-        dispatch(ModalActive())
-        dispatch(ClearAddForm())
+        dispatch(getJogsFetch())
+        dispatch(modalActive())
+        dispatch(clearAddForm())
       })
       .catch((err) => {
-        dispatch(AddErr(err.message))
+        dispatch(addErr(err.message))
       })
   }
 }
-export const EditJogFetch = (obj) => {
+export const editJogFetch = (obj) => {
   const jog = {
     distance: obj.distance,
     time: obj.time,
@@ -59,18 +59,18 @@ export const EditJogFetch = (obj) => {
     api.fetchApi
       .editJog(jog)
       .then(() => {
-        dispatch(GetJogsFetch())
-        dispatch(ModalActive())
-        dispatch(ClearAddForm())
-        dispatch(SwitchModalState())
+        dispatch(getJogsFetch())
+        dispatch(modalActive())
+        dispatch(clearAddForm())
+        dispatch(switchModalState())
       })
       .catch((err) => {
-        dispatch(AddErr(err.message))
+        dispatch(addErr(err.message))
       })
   }
 }
 
-export const DeleteJogFetch = (id, userId) => {
+export const deleteJogFetch = (id, userId) => {
   const user = {
     jog_id: id,
     user_id: userId,
@@ -79,41 +79,41 @@ export const DeleteJogFetch = (id, userId) => {
     api.fetchApi
       .deleteJog(user)
       .then(() => {
-        dispatch(DeleteJog(id))
+        dispatch(deleteJog(id))
       })
       .catch((err) => {
-        dispatch(AddErr(err.message))
+        dispatch(addErr(err.message))
       })
   }
 }
-export const CancelButton = () => {
+export const cancelButton = () => {
   return (dispatch) => {
-    dispatch(ModalActive())
-    dispatch(ClearAddForm())
-    dispatch(SwitchModalState())
+    dispatch(modalActive())
+    dispatch(clearAddForm())
+    dispatch(switchModalState())
   }
 }
-export const EditButton = (payload) => {
+export const editButton = (payload) => {
   return (dispatch) => {
-    dispatch(PushAddForm(payload))
-    dispatch(ModalActive())
-    dispatch(SwitchModalState())
+    dispatch(pushAddForm(payload))
+    dispatch(modalActive())
+    dispatch(switchModalState())
   }
 }
-export const SetToken = () => ({ type: types.SET_TOKEN })
-export const FilterActive = () => ({ type: types.TOGGLE_FILTER })
-export const ModalActive = () => ({ type: types.TOGGLE_MODAL })
-const PushAddForm = (payload) => ({ type: types.PUSH_ADD_FORM, payload })
-const SwitchModalState = () => ({ type: types.SWITCH_MODAL })
-const ClearAddForm = () => ({ type: types.CLEAR_ADD_FORM })
-const DeleteJog = (id) => ({ type: types.DELETE_JOG, id })
-const AddErr = (err) => ({ type: types.ADD_ERR, err })
-export const OnChange = (name, value) => ({
+export const setToken = () => ({ type: types.SET_TOKEN })
+export const filterActive = () => ({ type: types.TOGGLE_FILTER })
+export const modalActive = () => ({ type: types.TOGGLE_MODAL })
+const pushAddForm = (payload) => ({ type: types.PUSH_ADD_FORM, payload })
+const switchModalState = () => ({ type: types.SWITCH_MODAL })
+const clearAddForm = () => ({ type: types.CLEAR_ADD_FORM })
+const deleteJog = (id) => ({ type: types.DELETE_JOG, id })
+const addErr = (err) => ({ type: types.ADD_ERR, err })
+export const onChange = (name, value) => ({
   type: types.ON_CHANGE,
   name,
   value,
 })
-const SetJogs = (payload) => ({
+const setJogs = (payload) => ({
   type: types.SET_JOGS,
   payload,
   filterTo:
@@ -124,22 +124,22 @@ const SetJogs = (payload) => ({
         )
       : new Date().getTime(),
 })
-export const MobileClickJog = (id) => ({
+export const mobileClickJog = (id) => ({
   type: types.MOBILE_CLICK_JOG,
   id,
 })
-export const ChangeFilterFrom = (value) => ({
+export const changeFilterFrom = (value) => ({
   type: types.CHANGE_FILTER_FROM,
   value: new Date(value).getTime(),
 })
-export const ChangeFilterTo = (value) => ({
+export const changeFilterTo = (value) => ({
   type: types.CHANGE_FILTER_TO,
   value: new Date(value).getTime(),
 })
-export const OnChangeModalDate = (value) => ({
+export const onChangeModalDate = (value) => ({
   type: types.CHANGE_MODAL_DATE,
   value,
 })
-export const SwitchMenuIcon = () => ({
+export const switchMenuIcon = () => ({
   type: types.SWITCH_MENU_ICON,
 })

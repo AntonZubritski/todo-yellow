@@ -10,17 +10,17 @@ const HumanBlock = ({ jog }) => {
     <div className="human-block">
       <HumanSvg
         className={'human-icon'}
-        onClick={() => dispatch(actions.MobileClickJog(jog.id))}
+        onClick={() => dispatch(actions.mobileClickJog(jog.id))}
       />
       <div
         className={jog.mobile_btn ? 'a a-active' : 'a'}
-        onClick={() => dispatch(actions.EditButton(jog))}
+        onClick={() => dispatch(actions.editButton(jog))}
       >
         Edit
       </div>
       <div
         className={jog.mobile_btn ? 'b b-active' : 'b'}
-        onClick={() => dispatch(actions.DeleteJogFetch(jog.id, jog.user_id))}
+        onClick={() => dispatch(actions.deleteJogFetch(jog.id, jog.user_id))}
       >
         Delete
       </div>

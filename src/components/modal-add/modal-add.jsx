@@ -16,15 +16,15 @@ const ModalAdd = () => {
 
   const onChangeInput = (e) => {
     const { name, value } = e.target
-    dispatch(actions.OnChange(name, value))
+    dispatch(actions.onChange(name, value))
   }
   const onSubmit = (e) => {
     const { distance, time, date } = pageStore
     e.preventDefault()
     if (modalState) {
-      dispatch(actions.PostJogFetch(distance, time, date))
+      dispatch(actions.postJogFetch(distance, time, date))
     } else {
-      dispatch(actions.EditJogFetch(pageStore))
+      dispatch(actions.editJogFetch(pageStore))
     }
   }
 
@@ -33,7 +33,7 @@ const ModalAdd = () => {
       <div className="block-add">
         <NavLink to="/jogs">
           <CancelSvg
-            onClick={() => dispatch(actions.CancelButton())}
+            onClick={() => dispatch(actions.cancelButton())}
             className="cancel-icon"
             width={'27'}
             height={'27'}
@@ -73,7 +73,7 @@ const ModalAdd = () => {
               selected={pageStore.date}
               dateFormat="dd.MM.yyyy"
               withPortal={mobileDetect.isMobile() ? true : false}
-              onChange={(date) => dispatch(actions.OnChangeModalDate(date))}
+              onChange={(date) => dispatch(actions.onChangeModalDate(date))}
             />
             </div>
           </div>

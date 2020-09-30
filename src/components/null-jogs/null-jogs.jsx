@@ -17,7 +17,7 @@ const NullJogs = () => {
           value="Create your first jog"
           className="btn-create"
           onClick={() => {
-            dispatch(actions.ModalActive())
+            dispatch(actions.modalActive())
           }}
         />
       </div>

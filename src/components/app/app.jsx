@@ -22,7 +22,7 @@ const App = () => {
     } else {
       history.push('/entry')
     }
-  }, [isAuth])
+  }, [dispatch, history, isAuth])
 
   return (
     <Switch>

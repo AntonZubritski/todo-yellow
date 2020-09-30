@@ -8,7 +8,7 @@ import App from './components/app'
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App dispatch={store.dispatch.bind(store)} />
+      <App />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

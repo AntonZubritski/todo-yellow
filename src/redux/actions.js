@@ -1,22 +1,5 @@
-import {
-  ADD_ERR,
-  SET_TOKEN,
-  SET_JOGS,
-  TOGGLE_FILTER,
-  TOGGLE_MODAL,
-  ON_CHANGE,
-  CLEAR_ADD_FORM,
-  DELETE_JOG,
-  PUSH_ADD_FORM,
-  SWITCH_MODAL,
-  CHANGE_FILTER_FROM,
-  CHANGE_FILTER_TO,
-  CHANGE_MODAL_DATE,
-  MOBILE_CLICK_JOG,
-  SWITCH_MENU_ICON,
-} from './constants'
-
 import ApiArticles from '../services/api-services'
+import { types } from './constants'
 const api = new ApiArticles()
 
 export const GetJogsFetch = () => {
@@ -117,39 +100,46 @@ export const EditButton = (payload) => {
     dispatch(SwitchModalState())
   }
 }
-export const SetToken = () => ({ type: SET_TOKEN })
-export const FilterActive = () => ({ type: TOGGLE_FILTER })
-export const ModalActive = () => ({ type: TOGGLE_MODAL })
-const PushAddForm = (payload) => ({ type: PUSH_ADD_FORM, payload })
-const SwitchModalState = () => ({ type: SWITCH_MODAL })
-const ClearAddForm = () => ({ type: CLEAR_ADD_FORM })
-const DeleteJog = (id) => ({ type: DELETE_JOG, id })
-const AddErr = (err) => ({ type: ADD_ERR, err })
+export const SetToken = () => ({ type: types.SET_TOKEN })
+export const FilterActive = () => ({ type: types.TOGGLE_FILTER })
+export const ModalActive = () => ({ type: types.TOGGLE_MODAL })
+const PushAddForm = (payload) => ({ type: types.PUSH_ADD_FORM, payload })
+const SwitchModalState = () => ({ type: types.SWITCH_MODAL })
+const ClearAddForm = () => ({ type: types.CLEAR_ADD_FORM })
+const DeleteJog = (id) => ({ type: types.DELETE_JOG, id })
+const AddErr = (err) => ({ type: types.ADD_ERR, err })
 export const OnChange = (name, value) => ({
-  type: ON_CHANGE,
+  type: types.ON_CHANGE,
   name,
   value,
 })
 const SetJogs = (payload) => ({
-  type: SET_JOGS,
+  type: types.SET_JOGS,
   payload,
+  filterTo:
+    payload.length !== 0
+      ? Math.max.apply(
+          null,
+          payload.map((jogs) => jogs.date)
+        )
+      : new Date().getTime(),
 })
 export const MobileClickJog = (id) => ({
-  type: MOBILE_CLICK_JOG,
+  type: types.MOBILE_CLICK_JOG,
   id,
 })
 export const ChangeFilterFrom = (value) => ({
-  type: CHANGE_FILTER_FROM,
-  value,
+  type: types.CHANGE_FILTER_FROM,
+  value: new Date(value).getTime(),
 })
 export const ChangeFilterTo = (value) => ({
-  type: CHANGE_FILTER_TO,
-  value,
+  type: types.CHANGE_FILTER_TO,
+  value: new Date(value).getTime(),
 })
 export const OnChangeModalDate = (value) => ({
-  type: CHANGE_MODAL_DATE,
+  type: types.CHANGE_MODAL_DATE,
   value,
 })
 export const SwitchMenuIcon = () => ({
-  type: SWITCH_MENU_ICON,
+  type: types.SWITCH_MENU_ICON,
 })

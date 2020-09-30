@@ -17,7 +17,7 @@ const JogsPage = () => {
 
   useEffect(() => {
     dispatch(actions.GetJogsFetch())
-  }, [isAuth])
+  }, [dispatch, isAuth])
 
   const btnAdd = (
     !menuIcon ? (

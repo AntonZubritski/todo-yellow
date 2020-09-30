@@ -1,4 +1,4 @@
-import * as constants from './constants'
+import { types } from './constants'
 const initialStatePage = {
   jogs: [''],
   distance: '',
@@ -17,25 +17,23 @@ const initialStateService = {
 
 const pageReducer = (state = initialStatePage, action) => {
   switch (action.type) {
-    case constants.SET_JOGS:
+    case types.SET_JOGS:
       return {
         ...state,
         jogs: action.payload,
-        filterTo: action.payload.length !== 0 ? Math.max.apply(
-          null,
-          action.payload.map((jogs) => jogs.date)) : new Date().getTime(),
+        filterTo: action.filterTo,
       }
-    case constants.ON_CHANGE:
+    case types.ON_CHANGE:
       return { ...state, [action.name]: action.value }
-    case constants.CHANGE_MODAL_DATE:
+    case types.CHANGE_MODAL_DATE:
       return { ...state, date: action.value }
-    case constants.DELETE_JOG:
+    case types.DELETE_JOG:
       return {
         ...state,
         jogs: state.jogs.filter((el) => el.id !== action.id),
       }
 
-    case constants.MOBILE_CLICK_JOG:
+    case types.MOBILE_CLICK_JOG:
       return {
         ...state,
         jogs: state.jogs.map((el, key) => {
@@ -46,7 +44,7 @@ const pageReducer = (state = initialStatePage, action) => {
           }
         }),
       }
-    case constants.PUSH_ADD_FORM:
+    case types.PUSH_ADD_FORM:
       return {
         ...state,
         distance: action.payload.distance,
@@ -56,22 +54,22 @@ const pageReducer = (state = initialStatePage, action) => {
         user_id: action.payload.user_id,
         filter: false,
       }
-    case constants.CLEAR_ADD_FORM:
+    case types.CLEAR_ADD_FORM:
       return {
         ...state,
         distance: '',
         time: '',
         date: '',
       }
-    case constants.CHANGE_FILTER_FROM:
+    case types.CHANGE_FILTER_FROM:
       return {
         ...state,
-        filterFrom: new Date(action.value).getTime(),
+        filterFrom: action.value,
       }
-    case constants.CHANGE_FILTER_TO:
+    case types.CHANGE_FILTER_TO:
       return {
         ...state,
-        filterTo: new Date(action.value).getTime(),
+        filterTo: action.value,
       }
     default:
       return state
@@ -79,22 +77,22 @@ const pageReducer = (state = initialStatePage, action) => {
 }
 const serviceReducer = (state = initialStateService, action) => {
   switch (action.type) {
-    case constants.SET_TOKEN:
+    case types.SET_TOKEN:
       return { ...state, isAuth: true }
-    case constants.TOGGLE_FILTER:
+    case types.TOGGLE_FILTER:
       return { ...state, filter: !state.filter }
-    case constants.TOGGLE_MODAL:
+    case types.TOGGLE_MODAL:
       return { ...state, modal: !state.modal, filter: false, modalState: true }
-    case constants.SWITCH_MODAL:
+    case types.SWITCH_MODAL:
       return { ...state, modalState: !state.modalState }
-    case constants.SWITCH_MENU_ICON:
+    case types.SWITCH_MENU_ICON:
       return {
         ...state,
         menuIcon: !state.menuIcon,
         filter: false,
         modal: false,
       }
-    case constants.ADD_ERR:
+    case types.ADD_ERR:
       return { ...state, error: action.err }
     default:
       return state

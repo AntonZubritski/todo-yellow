@@ -15,7 +15,7 @@ const ContainerWrapper = (View) => {
           <li className={location.pathname === '/jogs' ? 'active' : null}>
             <NavLink
               to="/jogs"
-              onClick={() => dispatch(actions.SwitchMenuIcon())}
+              onClick={() => dispatch(actions.switchMenuIcon())}
             >
               JOGS
             </NavLink>
@@ -23,7 +23,7 @@ const ContainerWrapper = (View) => {
           <li className={location.pathname === '/info' ? 'active' : null}>
             <NavLink
               to="/info"
-              onClick={() => dispatch(actions.SwitchMenuIcon())}
+              onClick={() => dispatch(actions.switchMenuIcon())}
             >
               INFO
             </NavLink>
@@ -31,7 +31,7 @@ const ContainerWrapper = (View) => {
           <li className={location.pathname === '/conact' ? 'active' : null}>
             <NavLink
               to="/contact"
-              onClick={() => dispatch(actions.SwitchMenuIcon())}
+              onClick={() => dispatch(actions.switchMenuIcon())}
             >
               CONTACT US
             </NavLink>

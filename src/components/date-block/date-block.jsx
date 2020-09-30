@@ -19,7 +19,7 @@ const DateBlock = ({filter, filterFrom, filterTo}) => {
             className="date"
             dateFormat="dd.MM.yyyy"
             withPortal
-            onChange={(date) => dispatch(actions.ChangeFilterFrom(date))}
+            onChange={(date) => dispatch(actions.changeFilterFrom(date))}
           />
         </div>
         <div className="date-input">
@@ -29,7 +29,7 @@ const DateBlock = ({filter, filterFrom, filterTo}) => {
             className="date"
             dateFormat="dd.MM.yyyy"
             withPortal
-            onChange={(date) => dispatch(actions.ChangeFilterTo(date))}
+            onChange={(date) => dispatch(actions.changeFilterTo(date))}
           />
           </div>
         </div>

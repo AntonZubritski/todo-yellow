@@ -18,7 +18,7 @@ const App = () => {
     if (isAuth) {
       history.push('/jogs')
     } else if (!isAuth && localToken !== null) {
-      dispatch(actions.SetToken(localToken))
+      dispatch(actions.setToken(localToken))
     } else {
       history.push('/entry')
     }

@@ -16,14 +16,14 @@ const JogsPage = () => {
 
 
   useEffect(() => {
-    dispatch(actions.GetJogsFetch())
+    dispatch(actions.getJogsFetch())
   }, [dispatch, isAuth])
 
   const btnAdd = (
     !menuIcon ? (
     <div
       onClick={() => {
-        dispatch(actions.ModalActive())
+        dispatch(actions.modalActive())
       }}
     >
       {detectMobile.isMobile() ? (

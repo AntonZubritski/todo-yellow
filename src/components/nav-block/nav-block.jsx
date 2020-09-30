@@ -29,13 +29,13 @@ const NavBlock = () => {
             ? 'filter-block disabled'
             : 'filter-block'
         }
-        onClick={() => dispatch(actions.FilterActive())}
+        onClick={() => dispatch(actions.filterActive())}
       >
         {filter ? <FilterSvg active /> : <FilterSvg />}
       </div>
       <MenuButton
         menuIcon={menuIcon}
-        onClick={() => dispatch(actions.SwitchMenuIcon())}
+        onClick={() => dispatch(actions.switchMenuIcon())}
       />
     </div>
   ) : null

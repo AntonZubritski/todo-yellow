@@ -25,7 +25,7 @@ const StartPage = () => {
           <NavLink
             to="/jogs"
             className="btn-in"
-            onClick={() => dispatch(actions.LogInFetch())}
+            onClick={() => dispatch(actions.logInFetch())}
           >
             Let me in
           </NavLink>

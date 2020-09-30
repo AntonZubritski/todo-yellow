@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8947e00c8f3bfb7ae17e95afc1a4d029",
+    "revision": "b0dc01943b900aab869e8f629683b389",
     "url": "/todo-yellow/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/todo-yellow/static/css/2.8d4cdce2.chunk.css"
   },
   {
-    "revision": "955d0ace10e34d81212b",
+    "revision": "94cf8cd2171e554901db",
     "url": "/todo-yellow/static/css/main.9ab39f77.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/todo-yellow/static/js/2.886c2813.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "955d0ace10e34d81212b",
-    "url": "/todo-yellow/static/js/main.10b0b7a7.chunk.js"
+    "revision": "94cf8cd2171e554901db",
+    "url": "/todo-yellow/static/js/main.adb01d65.chunk.js"
   },
   {
     "revision": "8206314901a491d2575d",
